@@ -17,7 +17,7 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <header className='py-2 text-white'>
+    <header className='py-2 '>
       <Container className='flex flex-col items-center justify-between md:flex-row'>
         <nav className='flex gap-8'>
           {menuItems.map((item) => (

@@ -16,7 +16,7 @@ const Features = () => {
           bottom='Open a full-featured account in less than 5 minutes'
         />
 
-        <div className='grid gap-4 mt-24 grid-cols-auto-fit'>
+        <div className='grid mt-24 gap-x-4 gap-y-8 grid-cols-auto-fit'>
           <FeatureGrid
             icon={<RiWallet3Fill className='text-[#158E7F] text-2xl' />}
             title='Multi-Currency Wallet'
