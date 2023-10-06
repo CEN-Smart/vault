@@ -1,9 +1,9 @@
 'use client';
-const Logo = ({ onClick, className }) => {
+const Logo = ({ onClick, className, image }) => {
   return (
     <div onClick={onClick} className={className}>
       <picture>
-        <img className='w-full h-full' src='/logo.svg' alt='Logo' />
+        <img className='w-full h-full' src={image} alt='Logo' />
       </picture>
     </div>
   );

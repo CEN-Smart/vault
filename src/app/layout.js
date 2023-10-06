@@ -1,3 +1,4 @@
+import Navbar from '@/components/header/Navbar';
 import { Providers } from '@/providers/chakraui';
 import './globals.css';
 import { Inter } from 'next/font/google';
@@ -16,7 +17,10 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
         className={`${inter.className} antialiased text-white`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

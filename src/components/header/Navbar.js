@@ -17,13 +17,13 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <header className='py-2 '>
-      <Container className='flex flex-col items-center justify-between pt-5 md:flex-row'>
+    <header className='fixed w-full py-2 bg-center bg-no-repeat bg-cover bg-primary z-[90]'>
+      <Container className='flex flex-col items-center justify-between md:flex-row'>
         <nav className='flex gap-8'>
           {menuItems.map((item) => (
             <Link
-              className={cn({
-                'font-bold border-b-4  border-b-emerald-400':
+              className={cn(` text-white/70`, {
+                'font-bold border-b-4 text-white  border-b-emerald-400':
                   pathname === item.link,
               })}
               href={item.link}
@@ -35,6 +35,7 @@ const Navbar = () => {
         </nav>
         <div>
           <Logo
+            image={`/logo-header.svg`}
             onClick={() => router.push('/')}
             className='w-16 h-16 cursor-pointer'
           />
