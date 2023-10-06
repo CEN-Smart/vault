@@ -18,7 +18,7 @@ const Navbar = () => {
   const pathname = usePathname();
   return (
     <header className='py-2 '>
-      <Container className='flex flex-col items-center justify-between md:flex-row'>
+      <Container className='flex flex-col items-center justify-between pt-5 md:flex-row'>
         <nav className='flex gap-8'>
           {menuItems.map((item) => (
             <Link
