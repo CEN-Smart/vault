@@ -10,10 +10,7 @@ const Footer = () => {
       <Container>
         <div className='flex flex-col items-center justify-between gap-4 pb-8 border-b sm:flex-row border-b-white/70'>
           <Links />
-          <Logo
-            className='w-16 h-16 my-4 cursor-pointer sm:my-0'
-            image={`/logo-footer.svg`}
-          />
+          <Logo className='w-16 h-16 my-4 sm:my-0' image={`/logo-footer.svg`} />
           <Socials />
         </div>
         <p className='pt-4 text-sm text-center text-white/70'>

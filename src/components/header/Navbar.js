@@ -34,11 +34,7 @@ const Navbar = () => {
           ))}
         </nav>
         <div>
-          <Logo
-            image={`/logo-header.svg`}
-            onClick={() => router.push('/')}
-            className='w-16 h-16 cursor-pointer'
-          />
+          <Logo image={`/logo-header.svg`} className='w-16 h-16' />
         </div>
         <Link href='/login'>
           <Button title='Sign In' />
