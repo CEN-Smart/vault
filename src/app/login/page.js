@@ -98,7 +98,7 @@ const LogIn = () => {
                         <Heading>
                           {formState ? 'Create your account' : 'Log in'}{' '}
                         </Heading>
-                        <Text>
+                        <Text className='text-white/70'>
                           {formState
                             ? 'Already have an account?'
                             : 'New to vault?'}{' '}
@@ -265,7 +265,7 @@ const LogIn = () => {
                     type='submit'
                   />
                   {formState ? (
-                    <Text>
+                    <Text className='text-white/70'>
                       By continuing, you agree to our{' '}
                       <Link href='/terms-of-service' className='text-[#51EC81]'>
                         Terms of Service
@@ -285,7 +285,7 @@ const LogIn = () => {
                   )}
                   {!forgetPassword && (
                     <>
-                      <Text className='flex items-center justify-center gap-4 form-or'>
+                      <Text className='flex items-center justify-center gap-4 form-or text-white/70'>
                         or
                       </Text>
 
