@@ -30,7 +30,12 @@ const LogIn = () => {
 
   return (
     <>
-      <Grid className='bg-login' minH='100vh' placeItems='center'>
+      <Grid
+        className='bg-login'
+        overflowY='scroll'
+        minH='100vh'
+        placeItems='center'
+      >
         <Center>
           <Logo image={'/logo-header.svg'} />
         </Center>
