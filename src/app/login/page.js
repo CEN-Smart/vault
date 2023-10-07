@@ -29,13 +29,8 @@ const LogIn = () => {
   const handleTogglePassword = () => setShow(!show);
 
   return (
-    <>
-      <Grid
-        className='bg-login'
-        overflowY='scroll'
-        minH='100vh'
-        placeItems='center'
-      >
+    <Box as='section' className='bg-login'>
+      <Grid className='min-h-screen' placeItems='center'>
         <Center>
           <Logo image={'/logo-header.svg'} />
         </Center>
@@ -155,7 +150,7 @@ const LogIn = () => {
           </Formik>
         </Box>
       </Grid>
-    </>
+    </Box>
   );
 };
 
