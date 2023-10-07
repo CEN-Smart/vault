@@ -21,6 +21,7 @@ import { Field, Form, Formik } from 'formik';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import SocialBtn from '@/components/SocialBtn';
+import Logo from '@/components/header/Logo';
 
 const LogIn = () => {
   const [show, setShow] = React.useState(false);
@@ -30,6 +31,9 @@ const LogIn = () => {
   return (
     <>
       <Grid className='bg-login' minH='100vh' placeItems='center'>
+        <Center>
+          <Logo image={'/logo-header.svg'} />
+        </Center>
         <Box
           bg='black'
           color='white'
@@ -54,7 +58,7 @@ const LogIn = () => {
                   <Center className='flex flex-col gap-2 pb-8 text-center'>
                     <Heading>Log in</Heading>
                     <Text>
-                      New to vault?{" "}
+                      New to vault?{' '}
                       <Link className=' text-[#51EC81]' href='/register'>
                         Create an account
                       </Link>
@@ -62,7 +66,7 @@ const LogIn = () => {
                   </Center>
                   <FormControl isInvalid={!!errors.email && touched.email}>
                     <Field
-                      className='bg-[#293534]'
+                      className='bg-[#293534] shadow-form'
                       as={Input}
                       name='email'
                       id='email'
@@ -84,7 +88,7 @@ const LogIn = () => {
                   >
                     <InputGroup size='md'>
                       <Field
-                        className='bg-[#293534]'
+                        className='bg-[#293534] shadow-form'
                         pr='4.5rem'
                         as={Input}
                         name='password'
@@ -116,22 +120,25 @@ const LogIn = () => {
                     <FormErrorMessage>{errors.password}</FormErrorMessage>
                   </FormControl>
                   <Button className='w-full' title='Log In' type='submit' />
-                  <Link className='text-center text-[#51EC81]' href='/forgot-password'>
-                      Forgot Password?
-                    </Link>
+                  <Link
+                    className='text-center text-[#51EC81]'
+                    href='/forgot-password'
+                  >
+                    Forgot Password?
+                  </Link>
                   <Text className='flex items-center justify-center gap-4 form-or'>
                     or
                   </Text>
 
                   <ButtonGroup className='w-full'>
                     <SocialBtn
-                    className='flex-1 w-full'
+                      className='flex-1 w-full'
                       bgColor='#fff'
                       image={'/google.svg'}
                       alt='Google'
                     />
                     <SocialBtn
-                    className='flex-1 w-full hover:bg-blue-500'
+                      className='flex-1 w-full hover:bg-blue-500'
                       bgColor='#0676Eb'
                       image={'/facebook.svg'}
                       alt='Facebook'

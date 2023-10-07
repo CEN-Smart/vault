@@ -11,6 +11,7 @@ module.exports = {
         primary: '0px 4px 4px rgba(0, 0, 0, 0.25)',
         secondary: '0px 15px 35px rgba(0 0 0/.2)',
         tertiary: '0px 10px 25px rgba(0, 0, 0, 0.07)',
+        form: 'inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5)',
       },
       backgroundImage: {
         primary:
