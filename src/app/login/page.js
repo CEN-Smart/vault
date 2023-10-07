@@ -235,7 +235,7 @@ const LogIn = () => {
                               return error;
                             }}
                           />
-                          <InputRightElement width='4.5rem'>
+                          <InputRightElement width='4.5rem' cursor='pointer'>
                             <span
                               h='1.75rem'
                               size='sm'
