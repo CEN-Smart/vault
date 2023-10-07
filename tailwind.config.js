@@ -18,6 +18,8 @@ module.exports = {
         button: 'linear-gradient(89deg, #158E7F 38.58%, #43D680 106.84%)',
         secondary:
           'radial-gradient(circle farthest-side at center center, #158E7F 0%, #000000 100%, #158E7F 100%, #000000 0%)',
+        login:
+          ' radial-gradient(circle farthest-corner at center center, #193319 0%, #0A6629 0%, #232B03 100%)',
       },
       gridTemplateColumns: {
         'auto-fit': 'repeat(auto-fit, minmax(300px, 1fr))',

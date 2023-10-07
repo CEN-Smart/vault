@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .form-or::before {
+    content: '';
+    height: 1px;
+    flex: 1 0 240px;
+    background-color: #293534;
+  }
+
+  .form-or::after {
+    content: '';
+    height: 1px;
+    flex: 1 0 240px;
+    background-color: #293534;
+  }
+}

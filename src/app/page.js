@@ -8,7 +8,10 @@ import React from 'react';
 const Home = () => {
   return (
     <>
-      <Hero />
+      <header className='bg-center bg-no-repeat bg-cover bg-primary '>
+        <Navbar />
+        <Hero />
+      </header>
       <Features />
       <HowItWorks />
       <Footer />

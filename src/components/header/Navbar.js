@@ -17,7 +17,7 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <header className='fixed w-full py-2 bg-center bg-no-repeat bg-cover bg-primary z-[90]'>
+    <header className='py-2 pt-5 z-[90]'>
       <Container className='flex flex-col items-center justify-between md:flex-row'>
         <nav className='flex gap-8'>
           {menuItems.map((item) => (
@@ -40,9 +40,9 @@ const Navbar = () => {
             className='w-16 h-16 cursor-pointer'
           />
         </div>
-        <div>
+        <Link href='/login'>
           <Button title='Sign In' />
-        </div>
+        </Link>
       </Container>
     </header>
   );
