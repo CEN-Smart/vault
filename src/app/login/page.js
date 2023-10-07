@@ -255,7 +255,13 @@ const LogIn = () => {
                   )}
                   <Button
                     className='w-full'
-                    title={formState ? 'Create account' : 'Log In'}
+                    title={
+                      formState
+                        ? 'Create account'
+                        : forgetPassword
+                        ? 'Send Instructions'
+                        : 'Log In'
+                    }
                     type='submit'
                   />
                   {formState ? (
