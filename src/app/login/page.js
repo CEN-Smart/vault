@@ -29,12 +29,13 @@ const LogIn = () => {
   const handleTogglePassword = () => setShow(!show);
 
   return (
-    <Box as='section' className='bg-login'>
-      <Grid className='min-h-screen' placeItems='center'>
-        <Center>
+    <Box as='section' className='min-h-screen bg-login'>
+      <Grid placeItems='center'>
+        <Center className='py-4 pb-20'>
           <Logo image={'/logo-header.svg'} />
         </Center>
         <Box
+          overflow='hidden'
           bg='black'
           color='white'
           w={{
