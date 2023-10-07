@@ -236,7 +236,7 @@ const LogIn = () => {
                             }}
                           />
                           <InputRightElement width='4.5rem'>
-                            <button
+                            <span
                               h='1.75rem'
                               size='sm'
                               onClick={handleTogglePassword}
@@ -246,7 +246,7 @@ const LogIn = () => {
                               ) : (
                                 <AiOutlineEyeInvisible />
                               )}
-                            </button>
+                            </span>
                           </InputRightElement>
                         </InputGroup>
                         <FormErrorMessage>{errors.password}</FormErrorMessage>
