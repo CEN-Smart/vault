@@ -85,7 +85,7 @@ const LogIn = () => {
                   <Center className='flex flex-col gap-2 pb-8 text-center'>
                     {forgetPassword ? (
                       <>
-                        <Flex className='flex-col gap-1'>
+                        <Flex className='flex-col gap-1 pt-8'>
                           <Heading>Forget password?</Heading>
                           <Text className='text-sm text-white/70'>
                             Enter the email address you created your account
