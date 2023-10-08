@@ -11,7 +11,7 @@ const cardItems = [
 ];
 const DashboardCard = () => {
   return (
-    <Flex className=' flex-col gap-4 pt-6'>
+    <Flex className='flex-col gap-4 pt-6 '>
       {cardItems.map((item) => (
         <Box
           className='bg-card rounded-[1.25rem] p-8 shadow-secondary relative overflow-hidden '
@@ -20,7 +20,7 @@ const DashboardCard = () => {
           <item.icon className='h-[10rem] w-[12rem] absolute bottom-[-48px] right-[-45px]' />
           <Flex className='flex-col gap-8'>
             <Flex className='items-center justify-between'>
-              <h3 className='font-[600] text-3xl text-white/70'>
+              <h3 className='font-[600] lg:text-3xl text-white/70'>
                 {item.title}
               </h3>
               <Text className='flex items-center gap-1 cursor-pointer'>
@@ -28,7 +28,7 @@ const DashboardCard = () => {
                 {item.action}
               </Text>
             </Flex>
-            <p className='lg:text-[5.25rem] text-white text-4xl font-[700] pb-28 '>
+            <p className='lg:text-[5.25rem] text-white lg:text-4xl font-[700] pb-28 '>
               ($) {item.value}K
             </p>
           </Flex>
