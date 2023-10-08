@@ -66,7 +66,7 @@ const DashboardNavbar = () => {
           </Box>
           <button
             onClick={handleToggle}
-            className='px-2 py-1 mr-10 text-2xl text-white bg-button lg:hidden shadow-secondary ml-auto'
+            className='px-2 py-1 mr-10 text-2xl text-white bg-button lg:hidden shadow-secondary'
           >
             {isOpen ? <AiOutlineClose /> : <FiMenu />}
           </button>
