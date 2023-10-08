@@ -10,9 +10,13 @@ const cardItems = [
   { title: 'Wallet', value: 10, icon: IoWalletOutline, action: 'Fund' },
 ];
 const DashboardCard = () => {
+  const handleSavings = (action) => {
+    action === 'New' ? alert('Please fund your wallet') : null;
+  };
+
   return (
     <Flex className='flex-col gap-4 pt-6 '>
-      {cardItems.map((item) => (
+      {cardItems.map((item, i) => (
         <Box
           className='bg-card rounded-[1.25rem] p-8 shadow-secondary relative overflow-hidden '
           key={item.title}
@@ -23,7 +27,10 @@ const DashboardCard = () => {
               <h3 className='font-[600] lg:text-3xl text-white/70'>
                 {item.title}
               </h3>
-              <Text className='flex items-center gap-1 cursor-pointer'>
+              <Text
+                onClick={() => handleSavings(item.action)}
+                className='flex items-center gap-1 cursor-pointer'
+              >
                 <AiOutlinePlusCircle />
                 {item.action}
               </Text>
