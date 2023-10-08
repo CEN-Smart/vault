@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Box, Button, Center, Flex } from '@chakra-ui/react';
+import { Box, Center, Flex } from '@chakra-ui/react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import cn from '@/utils/classmerge';

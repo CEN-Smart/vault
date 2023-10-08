@@ -26,7 +26,6 @@ const DashboardLayout = ({ children }) => {
           <DashboardNavbar />
         </GridItem>
         <GridItem
-          className=' border'
           h='100vh'
           overflowY='auto'
           colSpan={{
@@ -39,7 +38,7 @@ const DashboardLayout = ({ children }) => {
           pb='3rem'
         >
           <DashboardHeading />
-          <Flex className='flex-col gap-8 items-center justify-center xl:flex-row '>
+          <Flex className='flex-col items-center justify-center gap-8 xl:flex-row '>
             <main className=' shrink-0 w-full xl:w-[60%]'>{children}</main>
             <section className='shrink-0 w-full xl:w-[40%] mt-[1.75rem] h-[35rem]  border p-6 overflow-y-auto rounded-[1.25rem]'>
               <RecentActivity />

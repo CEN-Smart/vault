@@ -14,7 +14,7 @@ const DashboardHeading = () => {
             '2xl': '2xl',
           }}
         >
-          Welcome Abel!
+          Welcome CEN Smart !
         </Heading>
         <Avatar
           className='bg-[#158E7F]'
@@ -25,7 +25,7 @@ const DashboardHeading = () => {
             xl: 'xl',
             '2xl': '2xl',
           }}
-          name='Abel'
+          name='CEN Smart'
           src='#'
         />
       </Flex>
