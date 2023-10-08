@@ -62,7 +62,7 @@ const activitycards = [
 const RecentActivity = () => {
   return (
     <>
-      <h3 className='mb-8 font-[600] text-3xl'>Recent Activities</h3>
+      <h3 className='mb-8 font-[600] lg:text-3xl'>Recent Activities</h3>
       <div className='flex flex-col gap-4'>
         {activitycards.map((item, i) => (
           <div
@@ -70,7 +70,7 @@ const RecentActivity = () => {
             className='flex items-center w-full bg-[#158E7F]/50  rounded-[0.625rem] p-4  gap-2'
           >
             <item.icon className='bg-[#17CB50] h-8 p-1  w-8 rounded-full' />
-            <div>
+            <div className='text-sm text-white/70'>
               <p>
                 <span>{item.amount} Added </span>
                 {item.name}
