@@ -59,12 +59,12 @@ const DashboardNavbar = () => {
             <IoLogOut className='text-2xl' />
             <span className='text-md'>Logout</span>
           </Box>
-          <Button
+          <button
             onClick={handleToggle}
-            className='mr-10 text-2xl text-white hover:bg-button bg-button lg:hidden shadow-secondary'
+            className='px-2 py-1 mr-10 text-2xl text-white bg-button lg:hidden shadow-secondary'
           >
             {isOpen ? <AiOutlineClose /> : <FiMenu />}
-          </Button>
+          </button>
         </Flex>
       </Flex>
     </Box>
