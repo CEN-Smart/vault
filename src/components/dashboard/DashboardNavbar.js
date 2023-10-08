@@ -33,6 +33,7 @@ const DashboardNavbar = () => {
       <Flex className='flex-col lg:mt-8' gap={2}>
         {navItems.map((item) => (
           <Link
+            onClick={handleToggle}
             href={item.href}
             key={item.name}
             className={cn(
