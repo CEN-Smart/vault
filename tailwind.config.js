@@ -24,6 +24,7 @@ module.exports = {
         primary:
           'radial-gradient(circle farthest-corner at center center, #158E7F 0%, #000000 100%, #158E7F 61%, #000000 100%)',
         button: 'linear-gradient(89deg, #158E7F 38.58%, #43D680 106.84%)',
+        card: 'linear-gradient(108deg, #17CB50 5.54%, #293534 92.93%)',
         secondary:
           'radial-gradient(circle farthest-side at center center, #158E7F 0%, #000000 100%, #158E7F 100%, #000000 0%)',
         login:

@@ -1,6 +1,9 @@
 'use client';
 import DashboardNavbar from '@/components/dashboard/DashboardNavbar';
-import { Grid, GridItem, Box } from '@chakra-ui/react';
+import DashboardHeading from '@/components/dashboard/Heading';
+import RecentActivity from '@/components/dashboard/RecentActivity';
+import { Grid, GridItem, Box, Flex } from '@chakra-ui/react';
+import { TbStackPush } from 'react-icons/tb';
 
 const DashboardLayout = ({ children }) => {
   return (
@@ -23,6 +26,7 @@ const DashboardLayout = ({ children }) => {
           <DashboardNavbar />
         </GridItem>
         <GridItem
+          className=' border'
           h='100vh'
           overflowY='auto'
           colSpan={{
@@ -34,7 +38,13 @@ const DashboardLayout = ({ children }) => {
           pt='6rem'
           pb='3rem'
         >
-          {children}
+          <DashboardHeading />
+          <Flex className='flex-col gap-8 items-center justify-center xl:flex-row '>
+            <main className=' shrink-0 w-full xl:w-[60%]'>{children}</main>
+            <section className='shrink-0 w-full xl:w-[40%] mt-[1.75rem] h-[35rem]  border p-6 overflow-y-auto rounded-[1.25rem]'>
+              <RecentActivity />
+            </section>
+          </Flex>
         </GridItem>
       </Grid>
     </Box>

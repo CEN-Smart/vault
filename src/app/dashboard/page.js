@@ -1,5 +1,5 @@
 import React from 'react';
-import DashboardHeading from './../../components/dashboard/Heading';
+import DashboardCard from '@/components/dashboard/DashboardCard';
 
 export const metadata = {
   title: 'Dashboard | Vault',
@@ -8,7 +8,7 @@ export const metadata = {
 const DashboardHome = () => {
   return (
     <>
-      <DashboardHeading />
+      <DashboardCard />
     </>
   );
 };

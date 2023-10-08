@@ -13,7 +13,7 @@ import { CgProfile } from 'react-icons/cg';
 import Logo from '../header/Logo';
 
 const navItems = [
-  { name: 'Dashboard', icon: GoHome, href: '/dashboard' },
+  { name: 'Home', icon: GoHome, href: '/dashboard' },
   { name: 'Savings', icon: GoShieldCheck, href: '/dashboard/savings' },
   { name: 'Wallet', icon: IoWalletOutline, href: '/dashboard/wallet' },
   { name: 'Profile', icon: CgProfile, href: '/dashboard/profile' },

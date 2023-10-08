@@ -4,7 +4,7 @@ import { Avatar, Flex, Heading } from '@chakra-ui/react';
 const DashboardHeading = () => {
   return (
     <>
-      <Flex className='items-center justify-between -mt-[4.5rem]'>
+      <Flex className='items-center justify-between -mt-[4.5rem] pb-8'>
         <Heading
           size={{
             base: 'sm',
