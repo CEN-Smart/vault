@@ -13,7 +13,7 @@ const Circle = ({ progress }) => {
           cy='80'
           fill='transparent'
           stroke='#e0e0e0'
-          stroke-width='20px'
+          strokeWidth='20px'
         ></circle>
         <circle
           r='70'
@@ -22,10 +22,10 @@ const Circle = ({ progress }) => {
           fill='transparent'
           className=' bg-gradient-to-r from-[#43D680] to-[#158E7F] bg-clip-text text-transparent'
           stroke='#158E7F'
-          stroke-linecap='round'
-          stroke-width='20px'
-          stroke-dasharray='439.6px'
-          stroke-dashoffset={`${439.6 * ((100 - progress) / 100)}px`}
+          strokeLinecap='round'
+          strokeWidth='20px'
+          strokeDasharray='439.6px'
+          strokeDashoffset={`${439.6 * ((100 - progress) / 100)}px`}
         ></circle>
       </svg>
     </div>

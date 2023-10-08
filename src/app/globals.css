@@ -16,4 +16,8 @@
     flex: 1 0 240px;
     background-color: #293534;
   }
+
+  .sidebar {
+    @apply py-4 flex items-center  gap-3  transition duration-150  hover:bg-black hover:text-white hover:font-semibold;
+  }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+'use client';
 import Container from '../Container';
 import HowCard from './HowCard';
 import Circle from './Circle';

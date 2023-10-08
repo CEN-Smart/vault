@@ -6,6 +6,13 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      sm: '30em',
+      md: '48em',
+      lg: '62em',
+      xl: '80em',
+      '2xl': '96em',
+    },
     extend: {
       boxShadow: {
         primary: '0px 4px 4px rgba(0, 0, 0, 0.25)',
