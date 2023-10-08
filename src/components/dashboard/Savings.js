@@ -37,10 +37,10 @@ const DashboardSavings = () => {
   return (
     <>
       <section className='flex flex-col gap-8'>
-        <h3 className='font-[600] cursor-pointer lg:text-3xl flex items-center gap-2 pr-6 self-end'>
+        <h3 className='font-[600] cursor-pointer lg:text-3xl flex items-center gap-2 self-end'>
           <IoAddCircleOutline /> New
         </h3>
-        <div className='flex flex-col gap-4 overflow-y-auto h-[35rem] p-6'>
+        <div className='flex flex-col gap-4 overflow-y-auto h-[35rem] pr-2'>
           {savingItems.map((item) => (
             <SavingItem
               key={item.id}
