@@ -36,7 +36,7 @@ const DashboardNavbar = () => {
             href={item.href}
             key={item.name}
             className={cn(
-              `pl-10 md:pl-16 sidebar -translate-x-full lg:-translate-x-0`,
+              `pl-10 md:pl-16 sidebar -translate-x-full transition-all duration-300 lg:-translate-x-0`,
               {
                 'bg-black font-[700]': pathname === item.href,
                 'translate-x-0': isOpen,
@@ -49,7 +49,7 @@ const DashboardNavbar = () => {
         ))}
         <Flex
           className={cn(
-            `md:pl-16 lg:mt-64 pl-10 mt-[-16rem] justify-between items-center`,
+            `md:pl-16 lg:mt-64 transition-all duration-300 pl-10 mt-[-16rem] justify-between items-center`,
             {
               'mt-0': isOpen,
             }
