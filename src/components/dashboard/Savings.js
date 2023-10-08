@@ -60,7 +60,7 @@ export default DashboardSavings;
 const SavingItem = ({ amount, time, progress }) => {
   return (
     <div className='sm:p-8 p-4 bg-card rounded-[1.25rem] flex sm:flex-row  justify-between flex-col gap-4'>
-      <div className='flex flex-col gap-2'>
+      <div className='flex flex-col gap-2 md:gap-6'>
         <p className='font-[600] lg:text-3xl text-white/70'>Safe Lock</p>
         <p className='font-[600] lg:text-3xl '>($) {amount}</p>
         <progress
