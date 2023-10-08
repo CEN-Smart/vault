@@ -17,6 +17,7 @@ const DashboardHeading = () => {
           Welcome Abel!
         </Heading>
         <Avatar
+          className='bg-[#158E7F]'
           size={{
             base: 'sm',
             md: 'md',

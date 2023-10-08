@@ -56,13 +56,17 @@ const DashboardNavbar = () => {
             }
           )}
         >
-          <Box className='flex items-center gap-2 cursor-pointer '>
+          <Box
+            className={cn(`flex items-center gap-2 cursor-pointer `, {
+              'hidden lg:flex': !isOpen,
+            })}
+          >
             <IoLogOut className='text-2xl' />
             <span className='text-md'>Logout</span>
           </Box>
           <button
             onClick={handleToggle}
-            className='px-2 py-1 mr-10 text-2xl text-white bg-button lg:hidden shadow-secondary'
+            className='px-2 py-1 mr-10 text-2xl text-white bg-button lg:hidden shadow-secondary ml-auto'
           >
             {isOpen ? <AiOutlineClose /> : <FiMenu />}
           </button>
