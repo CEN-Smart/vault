@@ -2,6 +2,7 @@
 import React from 'react';
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { useRouter } from 'next/navigation';
 
 import { BiChevronLeft } from 'react-icons/bi';
 
@@ -27,9 +28,26 @@ import SocialBtn from '@/components/SocialBtn';
 import Logo from '@/components/header/Logo';
 
 const AllForm = () => {
+  const router = useRouter();
   const [formState, setFormState] = React.useState(false);
   const [forgetPassword, setForgetPassword] = React.useState(false);
   const [show, setShow] = React.useState(false);
+
+  React.useEffect(() => {
+    router.push(
+      `?action=${
+        formState
+          ? 'create-account'
+          : forgetPassword
+          ? 'forget-password'
+          : 'login'
+      }`,
+      { scroll: false }
+    );
+
+    window.location.search
+
+  }, [router, formState, forgetPassword]);
 
   const handleTogglePassword = () => setShow(!show);
 

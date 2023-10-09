@@ -3,7 +3,7 @@ import React from 'react';
 import Container from '../Container';
 import Link from 'next/link';
 import Logo from './Logo';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import cn from '@/utils/classmerge';
 import Button from './../ui/Button';
 
@@ -14,7 +14,6 @@ const menuItems = [
 ];
 
 const Navbar = () => {
-  const router = useRouter();
   const pathname = usePathname();
   return (
     <header className='py-2 pt-5 z-[90]'>
@@ -36,7 +35,7 @@ const Navbar = () => {
         <div>
           <Logo image={`/logo-header.svg`} className='w-16 h-16' />
         </div>
-        <Link href='/login'>
+        <Link href='/form'>
           <Button title='Sign In' />
         </Link>
       </Container>
