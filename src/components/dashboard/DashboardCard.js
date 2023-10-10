@@ -21,7 +21,7 @@ const DashboardCard = () => {
           className='bg-card rounded-[1.25rem] p-8 shadow-secondary relative overflow-hidden '
           key={item.title}
         >
-          <item.icon className='h-[10rem] w-[12rem] absolute bottom-[-48px] right-[-45px]' />
+          <item.icon className='h-[10rem] w-[12rem] absolute bottom-[-48px] right-[-45px] text-white/50' />
           <Flex className='flex-col gap-8'>
             <Flex className='items-center justify-between'>
               <h3 className='font-[600] lg:text-3xl text-white/70'>
