@@ -98,19 +98,14 @@ const AllForm = () => {
               last_name: '',
             }}
             onSubmit={async (values) => {
-              // signup to  http://vaults.protechhire.com/api/v1/auth/register/
-
-              //login to http://vaults.protechhire.com/api/v1/auth/login/
-
-              // reset to http://vaults.protechhire.com/api/v1/auth/reset-account/
               await axios
                 .post(
                   `${
                     formState
-                      ? 'http://vaults.protechhire.com/api/v1/auth/register/'
+                      ? 'https://vaults.protechhire.com:8443/api/v1/auth/register/'
                       : forgetPassword
-                      ? 'http://vaults.protechhire.com/api/v1/auth/reset-account/'
-                      : 'http://vaults.protechhire.com/api/v1/auth/login/'
+                      ? 'https://vaults.protechhire.com:8443/api/v1/auth/reset-account/'
+                      : 'https://vaults.protechhire.com:8443/api/v1/auth/login/'
                   }`,
                   values
                 )
