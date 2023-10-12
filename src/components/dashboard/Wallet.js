@@ -1,10 +1,13 @@
 'use client';
-import { Box, Flex, Text, VStack } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 import { BiMoneyWithdraw } from 'react-icons/bi';
-import { IoSettingsOutline } from 'react-icons/io5';
+import {
+  IoSettingsOutline,
+  IoAddCircleOutline,
+  IoWalletOutline,
+} from 'react-icons/io5';
 import { GoShieldCheck } from 'react-icons/go';
-import { IoWalletOutline } from 'react-icons/io5';
 
 const cardItems = [
   { title: 'Total Savings', value: 100, icon: GoShieldCheck, action: 'New' },
@@ -17,9 +20,12 @@ const DashboardWalletCard = () => {
 
   return (
     <Flex className='flex-col gap-8 pt-6 '>
+      <h3 className='font-[600] cursor-pointer lg:text-3xl flex items-center gap-2 self-end'>
+        <IoAddCircleOutline /> Add Funds
+      </h3>
       <Box className='bg-card rounded-[1.25rem] p-8 shadow-secondary'>
         <Flex className='flex-col gap-8'>
-          <Flex className='items-center justify-between'>
+          <Flex className='flex-col items-center justify-between sm:flex-row'>
             <h3 className='font-[600] lg:text-3xl text-white/70'>
               Vault Wallet
             </h3>
@@ -42,16 +48,23 @@ const DashboardWalletCard = () => {
         </Flex>
       </Box>
       {/* barcode */}
-      <Box className='bg-card rounded-[1.25rem] p-8 shadow-secondary'>
-        <Flex className='flex-col gap-8'>
-          <Text className='font-[600] lg:text-3xl text-white/70 text-center'>
+      <Box className='bg-card rounded-[1.25rem] p-8 shadow-secondary grid place-items-center text-center'>
+        <Flex className='flex-col gap-4'>
+          <Text className='font-[600] lg:text-3xl text-white/70 '>
             Vault Wallet
           </Text>
-          <div className='relative w-16 h-16 text-center'>
+          <div className='relative w-40 h-40 mx-auto'>
             <picture>
-              <img className='w-full h-full' src='/barcode.svg' alt='Barcode' />
+              <img
+                className='object-cover w-full h-full'
+                src='/qr_code.jpg'
+                alt='Barcode'
+              />
             </picture>
           </div>
+          <p className='text-white/70'>
+            Scan this QR code to add funds to your Vault Wallet
+          </p>
         </Flex>
       </Box>
     </Flex>

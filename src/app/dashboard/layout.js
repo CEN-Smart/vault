@@ -2,10 +2,12 @@
 import DashboardNavbar from '@/components/dashboard/DashboardNavbar';
 import DashboardHeading from '@/components/dashboard/Heading';
 import RecentActivity from '@/components/dashboard/RecentActivity';
+import cn from '@/utils/classmerge';
 import { Grid, GridItem, Box, Flex } from '@chakra-ui/react';
-import { TbStackPush } from 'react-icons/tb';
+import { usePathname } from 'next/navigation';
 
 const DashboardLayout = ({ children }) => {
+  const pathname = usePathname();
   return (
     <Box className='bg-black'>
       <Grid gridTemplateColumns='repeat(6,1fr)'>
@@ -40,7 +42,11 @@ const DashboardLayout = ({ children }) => {
           <DashboardHeading />
           <Flex className='flex-col items-center justify-center gap-8 xl:flex-row '>
             <main className=' shrink-0 w-full xl:w-[60%]'>{children}</main>
-            <section className='shrink-0 w-full xl:w-[40%] mt-[1.75rem] h-[35rem]  border p-3 overflow-y-auto rounded-[1.25rem]'>
+            <section
+              className={cn(`shrink-0 w-full xl:w-[40%] mt-[1.75rem]`, {
+                hidden: pathname === '/dashboard/profile',
+              })}
+            >
               <RecentActivity />
             </section>
           </Flex>
