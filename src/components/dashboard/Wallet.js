@@ -17,7 +17,7 @@ const DashboardWalletCard = () => {
 
   return (
     <Flex className='flex-col gap-8 pt-6 '>
-      <Box className='bg-card rounded-[1.25rem] p-4 shadow-secondary'>
+      <Box className='bg-card rounded-[1.25rem] p-8 shadow-secondary'>
         <Flex className='flex-col gap-8'>
           <Flex className='items-center justify-between'>
             <h3 className='font-[600] lg:text-3xl text-white/70'>
@@ -31,17 +31,18 @@ const DashboardWalletCard = () => {
             <span className='text-white/70'>Available Balance</span>
             <span className='text-white/90'> ($) 10,000</span>
           </p>
-          <Flex className='flex items-center justify-between w-full gap-2'>
-            <div className='flex items-center text-[#05784E] rounded-md cursor-pointer  gap-2 bg-white px-6 flex-1 py-2 justify-center'>
+          <Flex className='flex flex-col items-center justify-between w-full gap-2 sm:flex-row'>
+            <div className='flex w-full items-center text-[#05784E] rounded-md cursor-pointer  gap-2 bg-white px-6 flex-1 py-2 justify-center'>
               <BiMoneyWithdraw /> Withdraw
             </div>
-            <div className='flex items-center text-[#05784E] gap-2 rounded-md justify-center bg-white px-6 py-2 flex-1 cursor-pointer'>
+            <div className='flex w-full items-center text-[#05784E] gap-2 rounded-md justify-center bg-white px-6 py-2 flex-1 cursor-pointer'>
               <IoSettingsOutline /> Settings
             </div>
           </Flex>
         </Flex>
       </Box>
-      <Box className='bg-card rounded-[1.25rem] p-4 shadow-secondary'>
+      {/* barcode */}
+      <Box className='bg-card rounded-[1.25rem] p-8 shadow-secondary'>
         <Flex className='flex-col gap-8'>
           <Text className='font-[600] lg:text-3xl text-white/70 text-center'>
             Vault Wallet
