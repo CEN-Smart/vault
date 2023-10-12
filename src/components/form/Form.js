@@ -20,6 +20,7 @@ import {
   VStack,
   ButtonGroup,
   Flex,
+  useToast,
 } from '@chakra-ui/react';
 import { Field, Form, Formik } from 'formik';
 import Link from 'next/link';
@@ -30,6 +31,7 @@ import axios from 'axios';
 
 const AllForm = () => {
   const router = useRouter();
+  const toast = useToast();
   const [formState, setFormState] = React.useState(false);
   const [forgetPassword, setForgetPassword] = React.useState(false);
   const [show, setShow] = React.useState(false);
@@ -92,26 +94,54 @@ const AllForm = () => {
             initialValues={{
               email: '',
               password: '',
-              firstname: '',
-              lastname: '',
+              first_name: '',
+              last_name: '',
             }}
             onSubmit={async (values) => {
-              // POST TO http://vaults.protechhire.com/api/v1/auth/register/
+              // signup to  http://vaults.protechhire.com/api/v1/auth/register/
+
+              //login to http://vaults.protechhire.com/api/v1/auth/login/
+
+              // reset to http://vaults.protechhire.com/api/v1/auth/reset-account/
               await axios
-                .post('http://vaults.protechhire.com/api/v1/auth/register/', {
-                  values,
-                })
+                .post(
+                  `${
+                    formState
+                      ? 'http://vaults.protechhire.com/api/v1/auth/register/'
+                      : forgetPassword
+                      ? 'http://vaults.protechhire.com/api/v1/auth/reset-account/'
+                      : 'http://vaults.protechhire.com/api/v1/auth/login/'
+                  }`,
+                  values
+                )
                 .then((res) => {
-                  console.log(res);
+                  if (res.status === 200) {
+                    toast({
+                      position: 'top',
+                      title: 'Account created.',
+                      description: "We've created your account for you.",
+                      status: 'success',
+                      duration: 3000,
+                      isClosable: true,
+                    });
+                    router.push('/dashboard');
+                  }
                 })
                 .catch((err) => {
-                  console.log(err);
+                  toast({
+                    position: 'top',
+                    title: 'Error',
+                    description: err.response.data.message,
+                    status: 'error',
+                    duration: 3000,
+                    isClosable: true,
+                  });
                 })
                 .finally(() => {
                   values.email = '';
                   values.password = '';
-                  values.firstname = '';
-                  values.lastname = '';
+                  values.first_name = '';
+                  values.last_name = '';
                 });
             }}
           >
@@ -176,7 +206,7 @@ const AllForm = () => {
                     </FormControl>
                   )}
 
-                  {/* FirstName and LastName */}
+                  {/* first_name and last_name */}
                   {formState && (
                     <Flex
                       gap={4}
@@ -185,13 +215,13 @@ const AllForm = () => {
                     >
                       <FormControl
                         className='flex-1'
-                        isInvalid={!!errors.firstname && touched.firstname}
+                        isInvalid={!!errors.first_name && touched.first_name}
                       >
                         <Field
                           className='bg-[#293534] shadow-form'
                           as={Input}
-                          name='firstname'
-                          id='firstname'
+                          name='first_name'
+                          id='first_name'
                           type='text'
                           variant='filled'
                           placeholder='First Name'
@@ -203,17 +233,17 @@ const AllForm = () => {
                             return error;
                           }}
                         />
-                        <FormErrorMessage>{errors.firstname}</FormErrorMessage>
+                        <FormErrorMessage>{errors.first_name}</FormErrorMessage>
                       </FormControl>
                       <FormControl
                         className='flex-1'
-                        isInvalid={!!errors.lastname && touched.lastname}
+                        isInvalid={!!errors.last_name && touched.last_name}
                       >
                         <Field
                           className='bg-[#293534] shadow-form'
                           as={Input}
-                          name='lastname'
-                          id='lastname'
+                          name='last_name'
+                          id='last_name'
                           type='text'
                           variant='filled'
                           placeholder='Last Name'
@@ -225,7 +255,7 @@ const AllForm = () => {
                             return error;
                           }}
                         />
-                        <FormErrorMessage>{errors.lastname}</FormErrorMessage>
+                        <FormErrorMessage>{errors.last_name}</FormErrorMessage>
                       </FormControl>
                     </Flex>
                   )}

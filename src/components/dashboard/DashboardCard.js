@@ -35,7 +35,7 @@ const DashboardCard = () => {
                 {item.action}
               </Text>
             </Flex>
-            <p className='lg:text-[5.25rem] text-white lg:text-4xl font-[700] pb-28 '>
+            <p className=' text-white lg:text-3xl font-[700] pb-28 '>
               ($) {item.value}K
             </p>
           </Flex>
