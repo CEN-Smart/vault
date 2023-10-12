@@ -115,7 +115,7 @@ const AllForm = () => {
                   values
                 )
                 .then((res) => {
-                  if (res.status === 200) {
+                  if (res.status === 200 && formState) {
                     toast({
                       position: 'top',
                       title: 'Account created.',
@@ -124,7 +124,31 @@ const AllForm = () => {
                       duration: 3000,
                       isClosable: true,
                     });
+                    setFormState(false);
+                  }
+                  // push router to /dashboard when user login
+                  if (res.status === 200 && !formState) {
+                    toast({
+                      position: 'top',
+                      title: 'Signed in successfully.',
+                      description: 'Welcome back!',
+                      status: 'success',
+                      duration: 3000,
+                      isClosable: true,
+                    });
                     router.push('/dashboard');
+                  }
+
+                  if (res.status === 200 && forgetPassword) {
+                    toast({
+                      position: 'top',
+                      title: 'Password reset.',
+                      description: 'Your password has been reset.',
+                      status: 'success',
+                      duration: 3000,
+                      isClosable: true,
+                    });
+                    setForgetPassword(false);
                   }
                 })
                 .catch((err) => {
@@ -145,7 +169,7 @@ const AllForm = () => {
                 });
             }}
           >
-            {({ handleSubmit, errors, touched }) => (
+            {({ handleSubmit, errors, touched, isSubmitting }) => (
               <Form onSubmit={handleSubmit}>
                 <VStack spacing={6}>
                   <Center className='flex flex-col gap-2 pb-8 text-center'>
@@ -338,10 +362,18 @@ const AllForm = () => {
                     className='w-full'
                     title={
                       formState
-                        ? 'Create account'
+                        ? `${
+                            isSubmitting
+                              ? 'Creating account...'
+                              : 'Create account'
+                          }`
                         : forgetPassword
-                        ? 'Send Instructions'
-                        : 'Log In'
+                        ? `${
+                            isSubmitting
+                              ? 'Sending instructions...'
+                              : 'Create account'
+                          }`
+                        : `${isSubmitting ? 'Logging In...' : 'Log In'}`
                     }
                     type='submit'
                   />
