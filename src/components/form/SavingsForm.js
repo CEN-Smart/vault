@@ -100,13 +100,10 @@ export default function SavingsForm({ onClose, isOpen }) {
                             return error;
                           }}
                         >
-                          <option selected disabled value=''>
-                            Days
-                          </option>
-                          {Array.from({ length: 30 }, (_, i) => i + 1).map(
-                            (day) => (
-                              <option key={day} value={day}>
-                                {day}
+                          {['Days', 'Weeks', 'Months', 'Years'].map(
+                            (option) => (
+                              <option key={option} value={option}>
+                                {option}
                               </option>
                             )
                           )}
