@@ -367,7 +367,7 @@ const AllForm = () => {
                         ? `${
                             isSubmitting
                               ? 'Sending instructions...'
-                              : 'Create account'
+                              : 'Send Instructions'
                           }`
                         : `${isSubmitting ? 'Logging In...' : 'Log In'}`
                     }
