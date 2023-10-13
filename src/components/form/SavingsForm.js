@@ -9,11 +9,14 @@ import {
   FormLabel,
   Input,
   VStack,
+  useToast,
 } from '@chakra-ui/react';
+import axios from 'axios';
 
 import { Field, Form, Formik } from 'formik';
 import Button from '../ui/Button';
 export default function SavingsForm({ onClose, isOpen }) {
+  const toast = useToast();
   return (
     <>
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
@@ -32,9 +35,45 @@ export default function SavingsForm({ onClose, isOpen }) {
                 duration: '',
                 days: '',
               }}
-              onSubmit={(values) => alert(JSON.stringify(values, null, 2))}
+              onSubmit={async (values) => {
+                // Make a post request with axios to https://vaults.protechhire.com:8443/#tag/wallet/operation/wallet_new_wallet
+                await axios
+                  .post(
+                    'https://vaults.protechhire.com:8443/api/v1/wallet/new',
+                    values
+                  )
+                  .then((res) => {
+                    if (res.status === 200) {
+                      toast({
+                        position: 'top',
+                        title: 'Wallet created.',
+                        description: "We've created your wallet for you.",
+                        status: 'success',
+                        duration: 3000,
+                        isClosable: true,
+                      });
+                      onClose();
+                    }
+                  })
+                  .catch((error) => {
+                    toast({
+                      position: 'top',
+                      title: 'Something went wrong.',
+                      description: error.message,
+                      status: 'error',
+                      duration: 3000,
+                      isClosable: true,
+                    });
+                  })
+                  .finally(() => {
+                    values.amount = '';
+                    values.duration = '';
+                    values.days = '';
+                    onClose();
+                  });
+              }}
             >
-              {({ handleSubmit, errors, touched }) => (
+              {({ handleSubmit, errors, touched, isSubmitting }) => (
                 <Form onSubmit={handleSubmit}>
                   <VStack spacing={6}>
                     <FormControl isInvalid={!!errors.amount && touched.amount}>
@@ -58,7 +97,7 @@ export default function SavingsForm({ onClose, isOpen }) {
                         className='text-sm text-white/70'
                         htmlFor='amount'
                       >
-                        Wallet Balance: (&euro;)10,000{' '}
+                        Wallet Balance: (&euro;)****{' '}
                       </FormLabel>
                       <FormErrorMessage>{errors.amount}</FormErrorMessage>
                     </FormControl>
@@ -113,7 +152,9 @@ export default function SavingsForm({ onClose, isOpen }) {
                     </div>
                     <Button
                       className='w-full'
-                      title='Lock Funds'
+                      title={`${
+                        isSubmitting ? 'Creating Wallet...' : 'Create Wallet'
+                      }`}
                       type='submit'
                     />
                   </VStack>

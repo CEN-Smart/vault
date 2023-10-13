@@ -121,6 +121,7 @@ const AllForm = () => {
                     });
                     setFormState(false);
                   }
+
                   // push router to /dashboard when user login
                   if (res.status === 200 && !formState) {
                     toast({
