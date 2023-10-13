@@ -1,6 +1,6 @@
 'use client';
 import DashboardNavbar from '@/components/dashboard/DashboardNavbar';
-import DashboardHeading from '@/components/dashboard/Heading';
+import Heading from '@/components/dashboard/Heading';
 import RecentActivity from '@/components/dashboard/RecentActivity';
 import cn from '@/utils/classmerge';
 import { Grid, GridItem, Box, Flex } from '@chakra-ui/react';
@@ -39,7 +39,7 @@ const DashboardLayout = ({ children }) => {
           pt='6rem'
           pb='3rem'
         >
-          <DashboardHeading />
+          <Heading/>
           <Flex className='flex-col items-center justify-center gap-8 xl:flex-row '>
             <main className=' shrink-0 w-full xl:w-[60%]'>{children}</main>
             <section
