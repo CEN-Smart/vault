@@ -139,6 +139,7 @@ export default function SavingsForm({ onClose, isOpen }) {
                             return error;
                           }}
                         >
+                        <option selected disabled value=''>Select Duration</option>
                           {['Days', 'Weeks', 'Months', 'Years'].map(
                             (option) => (
                               <option key={option} value={option}>
