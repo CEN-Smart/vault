@@ -2,16 +2,22 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import { BiMoneyWithdraw } from 'react-icons/bi';
-import { IoSettingsOutline, IoAddCircleOutline } from 'react-icons/io5';
+import {
+  IoSettingsOutline,
+  IoAddCircleOutline,
+  IoWalletOutline,
+} from 'react-icons/io5';
+import { GoShieldCheck } from 'react-icons/go';
 import WalletForm from '../form/WalletForm';
 import { useDisclosure } from '@chakra-ui/react';
 import axios from 'axios';
 
 const DashboardWalletCard = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [wallets, setWallet] = useState(null);
   const fetchUser = async () => {
-    const token = localStorage.getItem('token');
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('token');
+    }
+
     if (token) {
       const headers = {
         Authorization: `Bearer ${token}`,
@@ -36,9 +42,17 @@ const DashboardWalletCard = () => {
     }
   };
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [wallets, setWallet] = useState(null);
+
   useEffect(() => {
-    const userData = fetchUser();
-    setWallet(userData);
+    const fetchData = async () => {
+      const userData = await fetchUser();
+      console.log('User', userData);
+      setWallet(userData);
+    };
+
+    fetchData();
   }, []);
 
   return (
