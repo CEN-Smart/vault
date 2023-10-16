@@ -15,8 +15,9 @@ import axios from 'axios';
 
 import { Field, Form, Formik } from 'formik';
 import Button from '../ui/Button';
-export default function SavingsForm({ onClose, isOpen }) {
+export default function WalletForm({ onClose, isOpen }) {
     const toast = useToast();
+
     return (
         <>
             <Modal onClose={onClose} isOpen={isOpen} isCentered>
@@ -31,16 +32,21 @@ export default function SavingsForm({ onClose, isOpen }) {
                     >
                         <Formik
                             initialValues={{
-                                amount: '',
-                                duration: '',
-                                days: '',
+                                wallet_name: '',
+                                hint: '',
                             }}
                             onSubmit={async (values) => {
-                                // Make a post request with axios to https://vaults.protechhire.com:8443/#tag/wallet/operation/wallet_new_wallet
+                                //console.log(values)
+                                const token = localStorage.getItem("token");
+                                const headers = {
+                                    Authorization: `Bearer ${token}`
+                                };
                                 await axios
                                     .post(
-                                        'https://vaults.protechhire.com:8443/api/v1/wallet/new',
-                                        values
+                                        'https://vaults.protechhire.com:8443/api/v1/wallet/new_wallet/',
+                                        values, {
+                                        headers: headers
+                                    }
                                     )
                                     .then((res) => {
                                         if (res.status === 200) {
@@ -56,19 +62,19 @@ export default function SavingsForm({ onClose, isOpen }) {
                                         }
                                     })
                                     .catch((error) => {
+                                        //console.log(error.response.data.message)
                                         toast({
                                             position: 'top',
-                                            title: 'Something went wrong.',
-                                            description: "ji",
+                                            title: error.response.data.error,
+                                            description: error.response.data.message,
                                             status: 'error',
                                             duration: 3000,
                                             isClosable: true,
                                         });
                                     })
                                     .finally(() => {
-                                        values.amount = '';
-                                        values.duration = '';
-                                        values.days = '';
+                                        values.wallet_name = '';
+                                        values.hint = '';
                                         onClose();
                                     });
                             }}
@@ -80,26 +86,20 @@ export default function SavingsForm({ onClose, isOpen }) {
                                             <Field
                                                 className='bg-[#293534] shadow-form'
                                                 as={Input}
-                                                name='amount'
-                                                id='amount'
-                                                type='number'
+                                                name='wallet_name'
+                                                id='wallet_name'
+                                                type='text'
                                                 variant='filled'
-                                                placeholder='Amount to Lock'
+                                                placeholder='Enter a wallet name'
                                                 validate={(value) => {
                                                     let error;
                                                     if (!value) {
-                                                        error = 'Enter an Amount';
+                                                        error = 'Enter a wallet name';
                                                     }
                                                     return error;
                                                 }}
                                             />
-                                            <FormLabel
-                                                className='text-sm text-white/70'
-                                                htmlFor='amount'
-                                            >
-                                                Wallet Balance: (&euro;)****{' '}
-                                            </FormLabel>
-                                            <FormErrorMessage>{errors.amount}</FormErrorMessage>
+                                            <FormErrorMessage>{errors.wallet_name}</FormErrorMessage>
                                         </FormControl>
                                         <div className='flex flex-col items-center w-full gap-4 sm:flex-row'>
                                             <FormControl
@@ -108,47 +108,20 @@ export default function SavingsForm({ onClose, isOpen }) {
                                                 <Field
                                                     className='bg-[#293534] shadow-form w-full'
                                                     as={Input}
-                                                    name='duration'
-                                                    id='duration'
-                                                    type='number'
+                                                    name='hint'
+                                                    id='hint'
+                                                    type='text'
                                                     variant='filled'
-                                                    placeholder='Lock Duration'
+                                                    placeholder='Wallet Password'
                                                     validate={(value) => {
                                                         let error;
                                                         if (!value) {
-                                                            error = 'Enter Duration';
+                                                            error = 'Enter hint';
                                                         }
                                                         return error;
                                                     }}
                                                 />
-                                                <FormErrorMessage>{errors.duration}</FormErrorMessage>
-                                            </FormControl>
-
-                                            {/* Selection*/}
-                                            <FormControl isInvalid={!!errors.days && touched.days}>
-                                                <Field
-                                                    as='select'
-                                                    name='days'
-                                                    id='days'
-                                                    className='bg-[#293534] shadow-form w-full p-2 text-white/70'
-                                                    validate={(value) => {
-                                                        let error;
-                                                        if (!value) {
-                                                            error = 'Enter an Duration';
-                                                        }
-                                                        return error;
-                                                    }}
-                                                >
-                                                    <option selected disabled value=''>Select Duration</option>
-                                                    {['Days', 'Weeks', 'Months', 'Years'].map(
-                                                        (option) => (
-                                                            <option key={option} value={option}>
-                                                                {option}
-                                                            </option>
-                                                        )
-                                                    )}
-                                                </Field>
-                                                <FormErrorMessage>{errors.days}</FormErrorMessage>
+                                                <FormErrorMessage>{errors.hint}</FormErrorMessage>
                                             </FormControl>
                                         </div>
                                         <Button
