@@ -1,11 +1,9 @@
 'use client';
 import React from 'react';
 import Container from '../Container';
-import Button from '../ui/Button';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const Hero = () => {
-  const router = useRouter();
   return (
     <section className='pb-12 pt-28 '>
       <Container className='flex flex-col items-center gap-6 mx-auto xl:gap-20 md:flex-row'>
@@ -16,12 +14,12 @@ const Hero = () => {
           <p className='text-md text-white/70'>
             Saving Made Simple, Earnings Made Easy
           </p>
-          <Button
-            onClick={() => {
-              router.push('/form');
-            }}
-            title='Get Started'
-          />
+          <Link
+            className='bg-button py-2 px-4 hover:scale-105 active:scale-95 transition duration-300 rounded-md text-center font-semibold text-sm md:text-base 2xl:text-lg'
+            href='/form'
+          >
+            Get Started
+          </Link>
         </div>
         <div className='relative w-full h-full md:h-[50%] md:w-[50%]'>
           <picture>
